@@ -11,10 +11,10 @@ class WitController
     Wit.init
 
     Wit.voice_query_start(@@access_token)
-    sleep 5
+    sleep 3
     r = Wit.voice_query_stop
 
-    #Wit.close
+    Wit.close
 
     r
 
