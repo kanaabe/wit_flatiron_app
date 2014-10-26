@@ -1,4 +1,4 @@
-class WitController
+class WitHandler
   
   @@api_url = "https://api.wit.ai/message"
   @@access_token = 'M36WCGPCW2YWJ7SASA75AUOO2P3ZZZDW'

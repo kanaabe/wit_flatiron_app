@@ -1,4 +1,6 @@
-require 'sinatra'
-require './WitApp'
+require './config/environment'
+#require 'sinatra'
+#require 'app/controllers/WitApp'
 
+#use WitController
 run WitApp
