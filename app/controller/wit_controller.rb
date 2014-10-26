@@ -1,12 +1,23 @@
 class WitController
   
-  def try
-    access_token = 'M36WCGPCW2YWJ7SASA75AUOO2P3ZZZDW'
+  @@api_url = "https://api.wit.ai/message"
+  @@access_token = 'M36WCGPCW2YWJ7SASA75AUOO2P3ZZZDW'
 
+  # def initialize
+  #   Wit.init
+  # end
+
+  def message
     Wit.init
-    response = Wit.voice_query_auto(access_token)
-    p "Response: #{response}"
-    Wit.close
+
+    Wit.voice_query_start(@@access_token)
+    sleep 5
+    r = Wit.voice_query_stop
+
+    #Wit.close
+
+    r
 
   end
+
 end
