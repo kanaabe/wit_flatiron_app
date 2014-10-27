@@ -19,7 +19,7 @@ class FeatureHelper
       end
     end
     #binding.pry
-    the_feed
+    the_feed[0..14]
   end
 
 end

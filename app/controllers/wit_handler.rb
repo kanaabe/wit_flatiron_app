@@ -1,3 +1,6 @@
+# This is for calling the Ruby API, but in our app we're just 
+# calling Wit from JS
+
 class WitHandler
   
   @@api_url = "https://api.wit.ai/message"

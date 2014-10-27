@@ -1,17 +1,22 @@
  <html>
   <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <%= css :application %>
     <%= js :application %>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Stalker</title>
+    <meta name="description" content="Flatiron Presents: Cassie and Kana">
+    <meta name="author" content="Cassie Tarakajian - Kana Abe">
   </head>
   <body style="text-align: center;">
+    <div class="container">
     <h1>Voice Stalk</h1>
     <h2>Stalk your friends without typing anything!</h3>
     <h3>To begin, tell <em>Voice Stalk</em> who you would like to stalk, e.g. "Stalk Cassie"</h3>
     <center><div id="microphone"></div></center>
-    <!-- <pre id="result"></pre> -->
-    <div id="info"></div>
-    <!-- <div id="error"></div> -->
+    <div id="info">
+    </div>
 
     <script>
       var mic = new Wit.Microphone(document.getElementById("microphone"));
@@ -25,11 +30,11 @@
         info("Ready for your command");
       };
       mic.onaudiostart = function () {
-        // info("Recording started");
+        info("");
         error("");
       };
       mic.onaudioend = function () {
-        // info("Recording stopped, processing started");
+        info("");
       };
       mic.onresult = function (intent, entities) {
         console.log(intent);
@@ -46,15 +51,6 @@
       };
 
       mic.connect("OG52RN4ELSTEYLE556OLPXRP65JHKAQX");
-      // mic.start();
-      // mic.stop();
-
-      function kv (k, v) {
-        if (toString.call(v) !== "[object String]") {
-          v = JSON.stringify(v);
-        }
-        return k + "=" + v + "\n";
-      }
     </script>
   </body>
   </html>

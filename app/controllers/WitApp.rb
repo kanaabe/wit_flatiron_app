@@ -4,7 +4,6 @@ register Sinatra::AssetPack
   assets do
     serve '/js', :from => '../assets/javascripts'
     js :application, [
-      'js/jquery-1.11.1.min.js',
       'js/helpers.js',
       '/js/microphone.min.js'
     ]
