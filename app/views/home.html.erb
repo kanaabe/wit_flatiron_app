@@ -2,15 +2,16 @@
   <head>
     <%= css :application %>
     <%= js :application %>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body style="text-align: center;">
     <h1>Voice Stalk</h1>
     <h2>Stalk your friends without typing anything!</h3>
     <h3>To begin, tell <em>Voice Stalk</em> who you would like to stalk, e.g. "Stalk Cassie"</h3>
     <center><div id="microphone"></div></center>
-    <pre id="result"></pre>
+    <!-- <pre id="result"></pre> -->
     <div id="info"></div>
-    <div id="error"></div>
+    <!-- <div id="error"></div> -->
 
     <script>
       var mic = new Wit.Microphone(document.getElementById("microphone"));
@@ -18,23 +19,22 @@
         document.getElementById("info").innerHTML = msg;
       };
       var error = function (msg) {
-        document.getElementById("error").innerHTML = msg;
+        // document.getElementById("error").innerHTML = msg;
       };
       mic.onready = function () {
         info("Ready for your command");
       };
       mic.onaudiostart = function () {
-        info("Recording started");
+        // info("Recording started");
         error("");
       };
       mic.onaudioend = function () {
-        info("Recording stopped, processing started");
+        // info("Recording stopped, processing started");
       };
       mic.onresult = function (intent, entities) {
         console.log(intent);
+        console.log(entities);
         post('/', {intent: intent});
-
-        document.getElementById("result").innerHTML = r;
       };
       mic.onerror = function (err) {
         error("Error: " + err);
