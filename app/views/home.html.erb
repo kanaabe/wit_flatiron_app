@@ -27,7 +27,7 @@
         // document.getElementById("error").innerHTML = msg;
       };
       mic.onready = function () {
-        info("Ready for your command");
+        info("");
       };
       mic.onaudiostart = function () {
         info("");
@@ -37,6 +37,7 @@
         info("");
       };
       mic.onresult = function (intent, entities) {
+        info("");
         console.log(intent);
         console.log(entities);
         post('/', {intent: intent});
