@@ -60,8 +60,8 @@
         </thead>
         <tbody>
           <% @github.each do |commit| %>
-            <!-- <tr><td><%= commit[time].ago_in_words %></td></tr> -->
-            <tr><td><%= commit[0] %></td></tr>
+            <tr><td><%=Time.xmlschema(commit[:time].to_s).ago_in_words %></td></tr>
+            <tr><td><%= commit[:content] %></td></tr>
           <% end %>
         </tbody>
       </table>
