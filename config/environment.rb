@@ -8,6 +8,7 @@ require_all 'lib'
 require 'open-uri'
 require 'json'
 require 'rss'
+require 'time'
 
 ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
