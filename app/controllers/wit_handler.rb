@@ -20,4 +20,13 @@ class WitHandler
 
   end
 
+  def pull_profile(name)
+
+    r = message
+
+    response_hash = JSON.parse(r)
+    puts response_hash
+    
+  end
+
 end
