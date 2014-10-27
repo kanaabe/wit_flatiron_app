@@ -27,6 +27,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
     i18n (0.6.11)
+    jsmin (1.0.1)
     json (1.8.1)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -44,6 +45,8 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
     rake (10.3.2)
     require_all (1.3.2)
     rspec (3.1.0)
@@ -58,6 +61,7 @@ GEM
     rspec-mocks (3.1.3)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
+    sass (3.4.6)
     shotgun (0.9)
       rack (>= 1.0)
     simple_oauth (0.2.0)
@@ -68,6 +72,11 @@ GEM
     sinatra-activerecord (2.0.2)
       activerecord (>= 3.2)
       sinatra (~> 1.0)
+    sinatra-assetpack (0.3.3)
+      jsmin
+      rack-test
+      sinatra
+      tilt (>= 1.3.0, < 2.0)
     slop (3.6.0)
     sqlite3 (1.3.9)
     thread_safe (0.3.4)
@@ -97,9 +106,11 @@ DEPENDENCIES
   rake
   require_all
   rspec
+  sass
   shotgun
   sinatra
   sinatra-activerecord
+  sinatra-assetpack
   sqlite3
   twitter
   wit
