@@ -1,13 +1,13 @@
 class WitHandler
   
   @@api_url = "https://api.wit.ai/message"
-  @@access_token = 'M36WCGPCW2YWJ7SASA75AUOO2P3ZZZDW'
+  @@access_token = 'IOQ7AJOACSNJ6TH2KIT22E2KHAVKTMML'
 
   # def initialize
   #   Wit.init
   # end
 
-  def message
+  def get_intent
     Wit.init
 
     Wit.voice_query_start(@@access_token)
@@ -16,17 +16,21 @@ class WitHandler
 
     Wit.close
 
-    r
+    response_hash = JSON.parse(r)
+
 
   end
 
-  def pull_profile(name)
+  def pull_profile(intent)
 
-    r = message
+    name = parse_name(intent)
+    profile = Profile.find_by(:name => name)
 
-    response_hash = JSON.parse(r)
-    puts response_hash
-    
+  end
+
+  def parse_name(intent)
+    intent = intent.gsub("get_","").gsub("_profile","").split("_")
+    intent.map { |i| i.capitalize }.join(' ')
   end
 
 end

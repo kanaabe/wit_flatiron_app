@@ -19,10 +19,17 @@
 
 <body>
 
-<h2>RESPONSE..</h2>
+<h2>STALKER RESULTS...</h2>
 
-<%= @r %>
+<%= @name %></br>
+<%= @biography %></br>
+<%= @github %></br>
+<%= @twitter %></br>
 
+<h3>LATEST TWEETS</h3>
 
+<% @tweets.each do |tweet| %>
+<li><%= tweet.text %></li>
+<% end %>
 </body>
 </html>
