@@ -7,6 +7,7 @@ require_all 'app'
 require_all 'lib'
 require 'open-uri'
 require 'json'
+require 'rss'
 
 ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
@@ -14,5 +15,8 @@ ActiveRecord::Base.establish_connection(
   )
 
 TWITTER = Twitter::REST::Client.new do |config|
-
+  config.consumer_key = "HuN9aigm7Ho7tSaGMtkjk2UaG"
+  config.consumer_secret = "8ZrTHlRguLQLGtzWIvFSQ5DOLcGD3NWOfySF3tuZxPPp8ENHwQ"
+  config.access_token = "1217406620-zxeCuOfA8ez20heFf7F1zbSb2LtDhPqwrSEOz9d"
+  config.access_token_secret = "KukhBvaIaZbxhMxpnRAhhPHvzIyUMa3A3tSvZtbvMn23T"
 end

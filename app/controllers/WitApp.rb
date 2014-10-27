@@ -13,12 +13,9 @@ set :views, File.expand_path('../../views', __FILE__)
     @twitter = profile.twitter
     @linkedin = profile.linkedin
     @biography = profile.biography
-
-    #@tweets = TWITTER.get_all_tweets("kanaabe")
-
-    @tweets = TWITTER.user_timeline(:user =>"kana_abe", :count=>15)
-
-    #inding.pry
+    @tweets = FeatureHelper.tweets("kana_abe")
+    #@github = FeatureHelper.github_feed("kanaabe")
+    
     erb :'index.html'
   end
 
