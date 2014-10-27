@@ -32,10 +32,10 @@ register Sinatra::AssetPack
     @twitter = profile.twitter
     @linkedin = profile.linkedin
     @biography = profile.biography
-
+    @tweets = FeatureHelper.tweets("kana_abe")
+    #@github = FeatureHelper.github_feed("kanaabe")
+    
     #@tweets = TWITTER.get_all_tweets("kanaabe")
-
-    @tweets = TWITTER.user_timeline(:user =>"kana_abe", :count=>15)
 
     #inding.pry
     erb :'results.html'
