@@ -4,12 +4,14 @@ register Sinatra::AssetPack
   assets do
     serve '/js', :from => '../assets/javascripts'
     js :application, [
+      'js/jquery-1.11.1.min.js',
       'js/helpers.js',
       '/js/microphone.min.js'
     ]
     serve '/css', :from => '../assets/stylesheets'
     css :application, [
       '/css/microphone.min.css',
+      '/css/style.css'
     ]
     serve '/css/fonts',  from: '../assets/fonts'
     #js_compression :jsmin
@@ -22,9 +24,9 @@ register Sinatra::AssetPack
 
   post '/' do
     wit = WitHandler.new
-    #i = wit.get_intent
-    i = "get_cassie_tarakajian_profile"
-    #profile = wit.pull_profile(i["outcomes"][0]["intent"])
+    #intent = params[:intent]
+    #profile = wit.pull_profile(intent)
+    i = "get_kana_abe_profile"
     @profile = wit.pull_profile(i)
 
     @tweets = FeatureHelper.tweets(@profile.twitter.gsub("https://twitter.com/",""))

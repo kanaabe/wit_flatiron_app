@@ -9,7 +9,6 @@
   <meta name="author" content="Cassie Tarakajian - Kana Abe">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   <%= css :application %>
   <%= js :application %>
 
@@ -32,9 +31,12 @@
 <div class="col-xs-12 text-center">
 <h3>LATEST TWEETS</h3>
 
+<ul class="unstyled">
 <% @tweets.each do |tweet| %>
 <li><%= tweet.text %></li>
 <% end %>
+</ul>
+
 </div>
 <div class="col-xs-12 text-center">
 <h3>LATEST GITHUB ACTIVITY</h3>
