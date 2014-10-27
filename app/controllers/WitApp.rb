@@ -23,13 +23,14 @@ register Sinatra::AssetPack
   post '/' do
     wit = WitHandler.new
     #i = wit.get_intent
-    i = "get_kana_abe_profile"
+    i = "get_cassie_tarakajian_profile"
     #profile = wit.pull_profile(i["outcomes"][0]["intent"])
     @profile = wit.pull_profile(i)
 
-    @tweets = FeatureHelper.tweets("kana_abe")
-    @github = FeatureHelper.github_feed("kanaabe")
-    
+    @tweets = FeatureHelper.tweets(@profile.twitter.gsub("https://twitter.com/",""))
+    #@tweets = FeatureHelper.tweets("flatironschool")
+    @github = FeatureHelper.github_feed(@profile.github.gsub("https://github.com/",""))
+    #binding.pry
     #@tweets = TWITTER.get_all_tweets("kanaabe")
 
     #inding.pry
