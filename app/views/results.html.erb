@@ -7,6 +7,7 @@
   <title>Stalker</title>
   <meta name="description" content="Flatiron Presents: Cassie and Kana">
   <meta name="author" content="Cassie Tarakajian - Kana Abe">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   <%= css :application %>
@@ -17,22 +18,31 @@
   <![endif]-->
 </head>
 
-<body>
-
+<body class="col-xs-12">
+<div class="col-xs-12 text-center">
 <h2>STALKER RESULTS...</h2>
 
-<%= @name %></br>
-<%= @biography %></br>
-<%= @github %></br>
-<%= @twitter %></br>
+<%= @profile.name %></br>
+<%= @profile.quote %></br>
+<%= @profile.education %></br>
+<%= @profile.work %></br>
+<%= @profile.biography %></br>
+</div>
 
+<div class="col-xs-12 text-center">
 <h3>LATEST TWEETS</h3>
 
 <% @tweets.each do |tweet| %>
 <li><%= tweet.text %></li>
 <% end %>
+</div>
+<div class="col-xs-12 text-center">
+<h3>LATEST GITHUB ACTIVITY</h3>
 
-<li><%= @github %></li>
+<% @github.each do |commit| %>
+<li><%= commit[0] %></li>
+<% end %>
+</div>
 
 </body>
 </html>

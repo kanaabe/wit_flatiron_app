@@ -13,11 +13,12 @@ class FeatureHelper
       feed = RSS::Parser.parse(rss)
       feed.items.each do |item|
         i=[]
-        i << item.title
-        i << item.updated
+        i << item.title.content
+        #i << item.updated.content
         the_feed << i
       end
     end
+    #binding.pry
     the_feed
   end
 
