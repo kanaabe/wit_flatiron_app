@@ -38,6 +38,7 @@ class PersonParser
       person.biography = biography
       person.education = education
       person.work = work
+      person.img_url = absolute_image_url
       person.save
     end
   end

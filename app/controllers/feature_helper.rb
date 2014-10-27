@@ -1,7 +1,7 @@
 class FeatureHelper
 
   def self.tweets(name)
-    TWITTER.user_timeline(:user =>"#{name}", :count=>15)
+    TWITTER.user_timeline("#{name}", :count=>15)
   end
 
   def self.github_feed(name)

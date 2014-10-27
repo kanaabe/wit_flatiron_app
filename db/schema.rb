@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026203545) do
+ActiveRecord::Schema.define(version: 20141027203421) do
 
   create_table "profiles", force: true do |t|
     t.text "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141026203545) do
     t.text "github"
     t.text "twitter"
     t.text "linkedin"
+    t.text "img_url"
   end
 
 end
