@@ -1,5 +1,25 @@
+body {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
 #microphone { 
   cursor: pointer; 
   cursor: hand; 
   margin: 20px;
+}
+
+img {
+  height: 100%;
+  width: 324px;
+}
+
+td {
+  padding-right: 5px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }

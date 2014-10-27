@@ -20,15 +20,23 @@
 
 <body>
   <div class="container">
-    <div class="container col-xs-12 text-center">
-    <h2>STALK RESULTS</h2>
-
-    <%= @profile.name %></br>
-    <%= @profile.quote %></br>
-    <%= @profile.education %></br>
-    <%= @profile.work %></br>
-    <%= @profile.biography %></br>
+    <h2 class="text-center">STALK RESULTS</h2>
+    <div class="row">
+      <div class="col-md-4 vcenter">
+        <img src="http://ruby006.students.flatironschool.com/<%= @profile.img_url %>">
+      </div>
+      <div class="col-md-6 vcenter">
+        <h3><%= @profile.name %></h3>
+        <p><%= @profile.quote %></p>
+        <h4>Education</h4>
+        <p><%= @profile.education %></p>
+        <h4>Career</h4>
+        <%= @profile.work %></br>
+        <h4>Biography</h4>
+        <%= @profile.biography %></br>
+      </div>
     </div>
+    <div class="row">
 
       <table class="striped">
         <thead>
@@ -36,11 +44,16 @@
         </thead>
         <tbody>
           <% @tweets.each do |tweet| %>
-          <tr><td><%= tweet.text %></td></tr>
+          <tr>
+            <td><%= tweet.created_at.ago_in_words %></td>
+            <td><%= tweet.text %></td>
+          </tr>
           <% end %>
         </tbody>
       </table>
-
+    </div>
+    
+    <div class="row">
       <table class="striped">
         <thead>
           <tr><h3>LATEST GITHUB ACTIVITY</h3></tr>
@@ -52,5 +65,6 @@
         </tbody>
       </table>
     </div>
-  </body>
+  </div>
+</body>
 </html>
