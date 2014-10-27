@@ -21,7 +21,7 @@
         document.getElementById("error").innerHTML = msg;
       };
       mic.onready = function () {
-        info("Microphone is ready to record");
+        info("Ready for your command");
       };
       mic.onaudiostart = function () {
         info("Recording started");
@@ -31,22 +31,8 @@
         info("Recording stopped, processing started");
       };
       mic.onresult = function (intent, entities) {
-        //THIS IS WHERE WE POST
         console.log(intent);
         post('/', {intent: intent});
-        // var r = kv("intent", intent);
-
-        // for (var k in entities) {
-        //   var e = entities[k];
-
-        //   if (!(e instanceof Array)) {
-        //     r += kv(k, e.value);
-        //   } else {
-        //     for (var i = 0; i < e.length; i++) {
-        //       r += kv(k, e[i].value);
-        //     }
-        //   }
-        // }
 
         document.getElementById("result").innerHTML = r;
       };
@@ -54,7 +40,6 @@
         error("Error: " + err);
       };
       mic.onconnecting = function () {
-        info("Microphone is connecting");
       };
       mic.ondisconnected = function () {
         info("Microphone is not connected");
