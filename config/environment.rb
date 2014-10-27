@@ -14,5 +14,8 @@ ActiveRecord::Base.establish_connection(
   )
 
 TWITTER = Twitter::REST::Client.new do |config|
-
+  config.consumer_key = "SOo0mIfGvsFVP7OlrNVaRS7bE"
+  config.consumer_secret = "yzNnxhbZknAcIOWXiPAL7UWVrdqr3hBYgLJPs6sTqaYiCVEXHh"
+  config.access_token = "276237692-vwCB7oLa5TWBoDFv7MVdap6aDxzAqdVFbpyjrwQM"
+  config.access_token_secret = "iXQ7vSO7Rvq8zVnZO3u8LDRMQvTzcHCfTRDUTBB3ZNRk0"
 end
