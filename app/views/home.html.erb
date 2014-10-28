@@ -19,6 +19,7 @@
     </div>
 
     <script>
+      var DEBUG = false;
       var mic = new Wit.Microphone(document.getElementById("microphone"));
       var info = function (msg) {
         document.getElementById("info").innerHTML = msg;
@@ -27,13 +28,19 @@
         document.getElementById("error").innerHTML = msg;
       };
       mic.onready = function () {
-        info("Microphone is ready to record");
+        if (DEBUG) {
+          info("Microphone is ready to record");
+        }
       };
       mic.onaudiostart = function () {
-        info("Recording started");
+        if (DEBUG) {
+          info("Recording started");
+        }
       };
       mic.onaudioend = function () {
-        info("Recording stopped, processing started");
+        if (DEBUG) {
+          info("Recording stopped, processing started");
+        }
       };
       mic.onresult = function (intent, entities) {
         console.log(intent)
@@ -45,10 +52,14 @@
         info("Error: " + err);
       };
       mic.onconnecting = function () {
-        info("Microphone is connecting");
+        if (DEBUG) {
+          info("Microphone is connecting");
+        }
       };
       mic.ondisconnected = function () {
-        info("Microphone is not connected");
+        if (DEBUG) {
+          info("Microphone is not connected");
+        }
       };
 
       mic.connect("OG52RN4ELSTEYLE556OLPXRP65JHKAQX");
