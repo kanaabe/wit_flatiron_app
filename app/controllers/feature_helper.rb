@@ -1,7 +1,8 @@
 class FeatureHelper
+  FEED_COUNT = 10
 
   def self.tweets(name)
-    TWITTER.user_timeline("#{name}", :count=>15)
+    TWITTER.user_timeline("#{name}", :count=>FEED_COUNT)
   end
 
   def self.github_feed(name)
@@ -15,7 +16,7 @@ class FeatureHelper
         the_feed << {time: item.published.content, content: item.title.content}
       end
     end
-    the_feed[0..14]
+    the_feed[0..FEED_COUNT-1]
   end
 
 end
