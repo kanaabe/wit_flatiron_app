@@ -24,34 +24,35 @@
         document.getElementById("info").innerHTML = msg;
       };
       var error = function (msg) {
-        // document.getElementById("error").innerHTML = msg;
+        document.getElementById("error").innerHTML = msg;
       };
       mic.onready = function () {
-        info("");
+        info("Microphone is ready to record");
       };
       mic.onaudiostart = function () {
-        info("");
-        error("");
+        info("Recording started");
       };
       mic.onaudioend = function () {
-        info("");
+        info("Recording stopped, processing started");
       };
       mic.onresult = function (intent, entities) {
-        info("");
-        console.log(intent);
-        console.log(entities);
+        console.log(intent)
         post('/', {intent: intent});
+
+        document.getElementById("result").innerHTML = r;
       };
       mic.onerror = function (err) {
-        error("Error: " + err);
+        info("Error: " + err);
       };
       mic.onconnecting = function () {
+        info("Microphone is connecting");
       };
       mic.ondisconnected = function () {
         info("Microphone is not connected");
       };
 
       mic.connect("OG52RN4ELSTEYLE556OLPXRP65JHKAQX");
+
     </script>
   </body>
   </html>

@@ -23,10 +23,10 @@ register Sinatra::AssetPack
 
   post '/' do
     wit = WitHandler.new
-    #intent = params[:intent]
-    #@profile = wit.pull_profile(intent)
-     i = "get_cassie_tarakajian_profile"
-     @profile = wit.pull_profile(i)
+    intent = params[:intent]
+    @profile = wit.pull_profile(intent)
+     # i = "get_cassie_tarakajian_profile"
+     # @profile = wit.pull_profile(i)
 
     @tweets = FeatureHelper.tweets(@profile.twitter.gsub("https://twitter.com/",""))
     @github = FeatureHelper.github_feed(@profile.github.gsub("https://github.com/",""))
