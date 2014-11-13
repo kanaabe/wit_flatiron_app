@@ -1,0 +1,43 @@
+class WitApp < Sinatra::Base
+set :views, File.expand_path('../app/views', __FILE__)
+register Sinatra::AssetPack
+  assets do
+    serve '/js', :from => 'app/assets/javascripts'
+    js :application, [
+      'js/helpers.js',
+      '/js/microphone.min.js'
+    ]
+    serve '/css', :from => 'app/assets/stylesheets'
+    css :application, [
+      '/css/microphone.min.css',
+      '/css/style.css'
+    ]
+    serve '/css/fonts',  from: 'app/assets/fonts'
+    #js_compression :jsmin
+    #css_compression :sass
+  end
+
+  get '/' do
+    erb :'home.html'
+  end
+
+  post '/' do
+    wit = WitHandler.new
+
+    if params[:intent] == "undefined" 
+      i = "get_cassie_tarakajian_profile"
+      @profile = wit.pull_profile(i)
+    else 
+      intent = params[:intent]
+      @profile = wit.pull_profile(intent)
+    end
+
+    @tweets = FeatureHelper.tweets(@profile.twitter.gsub("https://twitter.com/",""))
+    @github = FeatureHelper.github_feed(@profile.github.gsub("https://github.com/",""))
+    @profile.img_url
+    
+    erb :'results.html'
+  end
+
+
+end
