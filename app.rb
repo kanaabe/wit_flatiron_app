@@ -1,21 +1,21 @@
 class WitApp < Sinatra::Base
 set :views, File.expand_path('../app/views', __FILE__)
 register Sinatra::AssetPack
-  assets do
-    serve '/js', :from => './app/assets/javascripts'
-    js :application, [
-      'js/helpers.js',
-      '/js/microphone.min.js'
-    ]
-    serve '/css', :from => './app/assets/stylesheets'
-    css :application, [
-      '/css/microphone.min.css',
-      '/css/style.css'
-    ]
-    serve '/css/fonts',  from: './app/assets/fonts'
-    #js_compression :jsmin
-    #css_compression :sass
-  end
+  # assets do
+  #   serve '/js', :from => './app/assets/javascripts'
+  #   js :application, [
+  #     'js/helpers.js',
+  #     '/js/microphone.min.js'
+  #   ]
+  #   serve '/css', :from => './app/assets/stylesheets'
+  #   css :application, [
+  #     '/css/microphone.min.css',
+  #     '/css/style.css'
+  #   ]
+  #   serve '/css/fonts',  from: './app/assets/fonts'
+  #   #js_compression :jsmin
+  #   #css_compression :sass
+  # end
 
   get '/' do
     erb :'home.html'
